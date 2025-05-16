@@ -3,8 +3,8 @@ FROM php:8.2-apache
 
 # Instala extensiones necesarias
 RUN apt-get update && apt-get install -y \
-    libzip-dev zip unzip curl git \
-    && docker-php-ext-install pdo pdo_mysql zip
+    libzip-dev zip unzip curl git libpq-dev \
+    && docker-php-ext-install pdo pdo_mysql pdo_pgsql zip
 
 # Habilita mod_rewrite para Laravel
 RUN a2enmod rewrite
